@@ -4,6 +4,16 @@
  * Aluno: Silvio Mario Leite
  */
 
+import 'package:flutter/material.dart';
+
 main() {
-  print('Hello world pra dar sorte');
+  runApp(new PerguntaApp());
+}
+
+class PerguntaApp extends StatelessWidget {
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: Text('Olá Flutter!!!'),
+    );
+  }
 }
