@@ -10,10 +10,16 @@ main() {
   runApp(new PerguntaApp());
 }
 
+@override
 class PerguntaApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: Text('Olá Flutter!!!'),
+      home: Scaffold(
+        appBar: AppBar(
+          title: Text('Perguntas'),
+        ),
+        body: Text('Olá Flutter !!!'),
+      ),
     );
   }
 }
