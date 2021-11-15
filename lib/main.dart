@@ -1,25 +1,45 @@
-/* Aplicativo programa perguntas e respostas - Quiz v1.0
- * Este material faz parte do curso de Flutter e tem como objetivo
- * ensinar a programção em Flutter utilizando a linguagem Dart
- * Aluno: Silvio Mario Leite
- */
-
 import 'package:flutter/material.dart';
+import './questao.dart';
+import './resposta.dart';
 
-main() {
-  runApp(new PerguntaApp());
-}
+main() => runApp(new PerguntaApp());
 
-@override
-class PerguntaApp extends StatelessWidget {
+class _PerguntaAppState extends State<PerguntaApp> {
+  var _perguntaSelecionada = 0;
+
+  void _responder() {
+    setState(() {
+      _perguntaSelecionada++;
+    });
+  }
+
+  @override
   Widget build(BuildContext context) {
+    final perguntas = [
+      'Qual é a sua cor favorita?',
+      'Qual é o seu animal favorito?',
+    ];
+
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
           title: Text('Perguntas'),
         ),
-        body: Text('Olá Flutter !!!'),
+        body: Column(
+          children: <Widget>[
+            Questao(perguntas[_perguntaSelecionada]),
+            Resposta('Resposta 1', _responder),
+            Resposta('Resposta 2', _responder),
+            Resposta('Resposta 3', _responder),
+          ],
+        ),
       ),
     );
+  }
+}
+
+class PerguntaApp extends StatefulWidget {
+  _PerguntaAppState createState() {
+    return _PerguntaAppState();
   }
 }
